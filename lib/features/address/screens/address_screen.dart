@@ -56,33 +56,37 @@ class _AddressScreenState extends State<AddressScreen> {
     _cityController.dispose();
   }
 
-  void onApplePayResult(res) {
+  void onApplePayResult(res) async {
     if (context.read<UserProvider>().user.address.isEmpty) {
       addressSevices.saveUserAddress(
         context: context,
         address: addressToBeUsed,
       );
     }
-    addressSevices.placeOrder(
+    await addressSevices.placeOrder(
       context: context,
       address: addressToBeUsed,
       totalAmount: double.parse(widget.totalAmount),
     );
+
+    if (!context.mounted) return;
+    Navigator.pop(context);
   }
 
-  void onGooglePayResult(res) {
+  void onGooglePayResult(res) async {
     if (context.read<UserProvider>().user.address.isEmpty) {
       addressSevices.saveUserAddress(
         context: context,
         address: addressToBeUsed,
       );
     }
-    addressSevices.placeOrder(
+    await addressSevices.placeOrder(
       context: context,
       address: addressToBeUsed,
       totalAmount: double.parse(widget.totalAmount),
     );
 
+    if (!context.mounted) return;
     Navigator.pop(context);
   }
 
