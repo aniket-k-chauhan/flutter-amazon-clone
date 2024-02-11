@@ -19,7 +19,7 @@ class SearchServices {
       final token = context.read<UserProvider>().user.token;
 
       http.Response response = await http.get(
-          Uri.http(authority, "/api/products/search/$query"),
+          Uri.parse("$uri/api/products/search/$query"),
           headers: <String, String>{
             "Content-Type": "application/json; charset=UTF-8",
             "x-auth-token": token,

@@ -20,8 +20,7 @@ class HomeServices {
       final token = context.read<UserProvider>().user.token;
 
       http.Response response = await http.get(
-          Uri.http(authority, "/api/products",
-              <String, String>{"category": category}),
+          Uri.parse("$uri/api/products?category=$category"),
           headers: <String, String>{
             "Content-Type": "application/json; charset=UTF-8",
             "x-auth-token": token,
@@ -66,12 +65,11 @@ class HomeServices {
     try {
       final token = context.read<UserProvider>().user.token;
 
-      http.Response response = await http.get(
-          Uri.http(authority, "/api/deal-of-the-day"),
-          headers: <String, String>{
-            "Content-Type": "application/json; charset=UTF-8",
-            "x-auth-token": token,
-          });
+      http.Response response = await http
+          .get(Uri.parse("$uri/api/deal-of-the-day"), headers: <String, String>{
+        "Content-Type": "application/json; charset=UTF-8",
+        "x-auth-token": token,
+      });
 
       if (!context.mounted) return product;
       httpErrorhandling(

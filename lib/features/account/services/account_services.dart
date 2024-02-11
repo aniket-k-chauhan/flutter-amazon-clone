@@ -18,7 +18,7 @@ class AccountServices {
       final userProvider = context.read<UserProvider>();
 
       http.Response response = await http.get(
-        Uri.http(authority, "/api/my-orders"),
+        Uri.parse("$uri/api/my-orders"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": userProvider.user.token,

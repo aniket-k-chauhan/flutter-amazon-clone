@@ -18,7 +18,7 @@ class AddressSevices {
     final userProvider = context.read<UserProvider>();
     try {
       http.Response response = await http.post(
-        Uri.http(authority, "/api/save-user-address"),
+        Uri.parse("$uri/api/save-user-address"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": userProvider.user.token,
@@ -54,7 +54,7 @@ class AddressSevices {
     final userProvider = context.read<UserProvider>();
     try {
       http.Response response = await http.post(
-        Uri.http(authority, "/api/order"),
+        Uri.parse("$uri/api/order"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": userProvider.user.token,

@@ -33,7 +33,7 @@ class CartServices {
       final userProvider = context.read<UserProvider>();
 
       http.Response response = await http.delete(
-        Uri.http(authority, "/api/remove-from-cart/$productId"),
+        Uri.parse("$uri/api/remove-from-cart/$productId"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": userProvider.user.token,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 // locally
-// String authority = "${dotenv.env["LOCALHOST_IP_ADDRESS"]}:3000";
+// String uri = "http://${dotenv.env["LOCALHOST_IP_ADDRESS"]}:3000";
 
-String authority = "${dotenv.env["HEROKU_DOMAIN_ADDRESS"]}";
+String uri = "${dotenv.env["HEROKU_DOMAIN_ADDRESS"]}";
 
 class GlobalVariables {
   // COLORS

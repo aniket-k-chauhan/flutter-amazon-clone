@@ -33,7 +33,7 @@ class AuthService {
       );
 
       http.Response res = await http.post(
-        Uri.http(authority, "/api/signup"),
+        Uri.parse("$uri/api/signup"),
         body: user.toJson(),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8"
@@ -73,7 +73,7 @@ class AuthService {
         cart: [],
       );
 
-      http.Response res = await http.post(Uri.http(authority, "/api/signin"),
+      http.Response res = await http.post(Uri.parse("$uri/api/signin"),
           body: user.toJson(),
           headers: <String, String>{
             "Content-Type": "application/json; charset=UTF-8"
@@ -117,7 +117,7 @@ class AuthService {
       }
 
       http.Response tokenRes = await http.post(
-        Uri.http(authority, "/tokenIsValid"),
+        Uri.parse("$uri/tokenIsValid"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token
@@ -129,7 +129,7 @@ class AuthService {
       if (!resBody) return;
 
       http.Response userRes = await http.get(
-        Uri.http(authority, "/"),
+        Uri.parse("$uri/"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token

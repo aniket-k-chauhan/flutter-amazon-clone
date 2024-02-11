@@ -19,7 +19,7 @@ class ProductDetailsServices {
       final token = context.read<UserProvider>().user.token;
 
       http.Response response = await http.post(
-        Uri.http(authority, "/api/rate-product"),
+        Uri.parse("$uri/api/rate-product"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token,
@@ -49,7 +49,7 @@ class ProductDetailsServices {
       final userProvider = context.read<UserProvider>();
 
       http.Response response = await http.post(
-        Uri.http(authority, "/api/add-to-cart"),
+        Uri.parse("$uri/api/add-to-cart"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": userProvider.user.token,

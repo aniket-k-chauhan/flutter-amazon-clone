@@ -53,7 +53,7 @@ class AdminServices {
       final token = context.read<UserProvider>().user.token;
 
       http.Response response = await http.post(
-        Uri.http(authority, "/admin/add-product"),
+        Uri.parse("$uri/admin/add-product"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token,
@@ -82,7 +82,7 @@ class AdminServices {
     try {
       final token = context.read<UserProvider>().user.token;
       http.Response response = await http.get(
-        Uri.http(authority, "/admin/get-products"),
+        Uri.parse("$uri/admin/get-products"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token,
@@ -123,7 +123,7 @@ class AdminServices {
       final token = context.read<UserProvider>().user.token;
 
       http.Response response = await http.delete(
-        Uri.http(authority, "/admin/delete-product/$id"),
+        Uri.parse("$uri/admin/delete-product/$id"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token,
@@ -147,7 +147,7 @@ class AdminServices {
     try {
       final token = context.read<UserProvider>().user.token;
       http.Response response = await http.get(
-        Uri.http(authority, "/admin/get-orders"),
+        Uri.parse("$uri/admin/get-orders"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token,
@@ -187,7 +187,7 @@ class AdminServices {
       final token = context.read<UserProvider>().user.token;
 
       http.Response response = await http.post(
-        Uri.http(authority, "/admin/change-order-status"),
+        Uri.parse("$uri/admin/change-order-status"),
         headers: <String, String>{
           "Content-Type": "application/json; chatset=UTF-8",
           "x-auth-token": token,
@@ -215,7 +215,7 @@ class AdminServices {
     try {
       final token = context.read<UserProvider>().user.token;
       http.Response response = await http.get(
-        Uri.http(authority, "/admin/analytics"),
+        Uri.parse("$uri/admin/analytics"),
         headers: <String, String>{
           "Content-Type": "application/json; charset=UTF-8",
           "x-auth-token": token,
